@@ -5,9 +5,6 @@ class deckCard{
     private $id;
     private $deck;
 
-    public function __construct(){
-        
-    }
     // geter and setter
     public function getId(){
         return $this->id;
@@ -23,5 +20,8 @@ class deckCard{
 
     public function setDeck($deck){
         $this->deck = $deck;
+    }
+    public function save($cards){
+        
     }
 }
