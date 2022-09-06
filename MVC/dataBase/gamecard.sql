@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS players;
 
 CREATE TABLE players(
     id int unsigned AUTO_INCREMENT PRIMARY KEY,
-    name varchar(2),
+    name varchar(255),
     deck_id int unsigned,
     CONSTRAINT fk_players_decks FOREIGN KEY(deck_id) REFERENCES deckCards(id) ON UPDATE cascade ON DELETE cascade   
 );
