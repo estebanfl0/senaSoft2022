@@ -11,11 +11,13 @@ DROP TABLE IF EXISTS cards;
 CREATE TABLE cards(
     id varchar(2) PRIMARY KEY,
     name varchar(255) not null,
+    description text,
     strength int(2) unsigned default 10,
     speed int(2) unsigned default 10,
     defense int(2) unsigned default 10,
     bra in int(2) unsigned default 10,
-    maxPower int(2) unsigned not null
+    maxPower int(2) unsigned not null,
+    image varchar(255)
 );
 
 -- creacion de la tabla deckCards
