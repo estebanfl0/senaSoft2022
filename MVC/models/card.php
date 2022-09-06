@@ -134,4 +134,11 @@ class card{
         }
         return $result;
     }
+
+    // !!WARNING metodo para eliminar todas las cartas
+    public function delete(){
+        $sql = "DELETE FROM cards";        
+        $save = $this->db->query($sql);
+        return $save;
+    }
 } // end class
