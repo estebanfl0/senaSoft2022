@@ -31,7 +31,7 @@ class card{
 
     public function setId($id)
     {
-        $this->id = $id;
+        $this->id = $this->db->real_escape_string($id);
     }
     
     public function getName()
@@ -41,7 +41,7 @@ class card{
 
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = $this->db->real_escape_string($name);
     }
     
     public function getDescription()
@@ -52,7 +52,7 @@ class card{
 
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = $this->db->real_escape_string($description);
     }
     
     public function getStrength()
@@ -62,7 +62,7 @@ class card{
 
     public function setStrength($strength)
     {
-        $this->strength = $strength;
+        $this->strength = $this->db->real_escape_string($strength);
     }
     
     public function getSpeed()
@@ -72,7 +72,7 @@ class card{
     
     public function setSpeed($speed)
     {
-        $this->speed = $speed;
+        $this->speed = $this->db->real_escape_string($speed);
     }
  
     public function getDefense()
@@ -82,7 +82,7 @@ class card{
     
     public function setDefense($defense)
     {
-        $this->defense = $defense;
+        $this->defense = $this->db->real_escape_string($defense);
     }
 
     public function getBrain()
@@ -92,7 +92,7 @@ class card{
 
     public function setBrain($brain)
     {
-        $this->brain = $brain;
+        $this->brain = $this->db->real_escape_string($brain);
     }
     
     public function getMaxPower()
@@ -102,7 +102,7 @@ class card{
     
     public function setMaxPower($maxPower)
     {
-        $this->maxPower = $maxPower;
+        $this->maxPower = $this->db->real_escape_string($maxPower);
     }
     
     public function getImage()
@@ -126,7 +126,7 @@ class card{
         $maxPower = $this->getBrain();
         $image = ($this->getImage())? $this->getImage():null;
 
-        $sql = "INSERT INTO `cards` VALUES ('$id','$name','$description',$strength,$speed,$defense,$brain,$maxPower,$image)";        
+        $sql = "INSERT INTO cards VALUES ('$id','$name','$description',$strength,$speed,$defense,$brain,$maxPower,'$image')";        
         $save = $this->db->query($sql);
         $result = false;
         if($save){
