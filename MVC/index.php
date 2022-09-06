@@ -26,7 +26,7 @@ if(class_exists($controller_name)){
         $controller->$default();
     }
     else{
-        $erro = true;
+        $error = true;
         return $error;
     }
 
