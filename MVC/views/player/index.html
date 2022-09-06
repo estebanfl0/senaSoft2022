@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../public/css/player.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="icon" href="../../public/images/icon.png">
+    <title>Index</title>
+</head>
+<nav class="navbar navbar-expand-lg bg-dark ">
+    <div class="container-fluid">
+      <div class="col">
+        <a class="navbar-brand text-success" href="#">Super Stars Battle Card</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      </div>
+      <div class="col collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-success" aria-current="page" href="#">Lobby Game</a>
+          </li>
+         
+        </ul>
+        <form class="d-flex" role="search">
+          <button class="btn btn-outline-success" type="submit">Start Game</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+<body>
+    <div class="container-sm border border-dark my-5 rounded" style="background-color: rgba(255, 255, 255, 0.651);">
+        <h1 class="text-center" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Lobby</h1>
+        <div class="row">
+            <h3 class="text-center"  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Choose the number of players</h3>
+            
+        </div>
+        <div class="row text-center ">
+            <form action="" method="" >
+                <select  name="number" id="number" style="width: 25%;" onchange="ShowSelected();">
+                    <option value=""></option>
+                    <option value="2">  Two</option>
+                    <option value="3">  Three</option>
+                    <option value="4">  Four</option>
+                    <option value="5">  Five</option>
+                    <option value="6">  Six</option>
+                    <option value="7">  Seven</option>
+                </select>
+                <br>
+                <button class="btn btn-dark my-5" type="submit">Enter their names</button>
+            </form>
+            <div class="row">
+                <h3 class="text-center"  style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Choose the number of players</h3>
+            </div>
+            <div class="row" id="names">
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script src="../../public/js/bootstrap.min.js"></script>
+<script>
+    function ShowSelected(){
+    /* Para obtener el valor */
+    var cod = document.getElementById("number").value;
+    const div = document.getElementById("names")
+    /* Para obtener el texto */
+    var combo = document.getElementById("number");
+    for (let index = 1; index <= cod; index++) {
+        div.innerHTML ='<input type="text" placeholder="Player"> hp: '+pokemon.hp+'</input>'
+        
+    }
+}
+</script>
+</html>
