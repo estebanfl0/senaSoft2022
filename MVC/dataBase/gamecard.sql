@@ -15,7 +15,7 @@ CREATE TABLE cards(
     strength int(2) unsigned default 10,
     speed int(2) unsigned default 10,
     defense int(2) unsigned default 10,
-    bra in int(2) unsigned default 10,
+    brain int(2) unsigned default 10,
     maxPower int(2) unsigned not null,
     image varchar(255)
 );
