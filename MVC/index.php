@@ -1,8 +1,9 @@
 <?php
 session_start();
 require_once('autoload.php');
-require_once('config/db.php');
+require_once('config/database.php');
 require_once('config/parameters.php');
+require_once('helpers/utils.php');
 
 if(isset($_GET['controller'])){
     $controller_name = $_GET['controller'].'controller';
