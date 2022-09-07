@@ -6,11 +6,9 @@ class deckCardscontroller{
             $numCardsDeck = utils::maxcardDecks($numplayers);     
             $cardcontrol = new cardscontroller();
             $cards=$cardcontrol->getAllCards();
-            $id= $_GET['id'];
 
             $array = utils::generateDeck($numCardsDeck,$cards);
 
-            // se guarda el mazo de cartas para el juagdor
             $deck = new deckCard();
             $result = $deck->save($array);
             if($result){
@@ -24,11 +22,7 @@ class deckCardscontroller{
     public function getAll(){
         $decks = new deckCard();
         $decksplay = $decks->getAll();
-        var_dump($decksplay);
         return $decksplay;
     }
 
-    public function getAllRand(){
-        
-    }
 }//end class
