@@ -37,8 +37,8 @@ class deckCard{
         return $result;
     }
 
-    public function getOne($id){
-        $sql = "SELECT * FROM deckcards WHERE id = $id";        
+    public function getOneRand($id){
+        $sql = "SELECT rand(id) FROM deckcards";        
         $answer = $this->db->query($sql);
         $result = mysqli_fetch_object($answer);
         return $result;
