@@ -4,11 +4,6 @@ class deckCard{
     // se generan los atributos del modelo
     private $id;
     private $deck;
-    private $db;
-
-    public function __construct(){
-        $this->db = dataBase::conexion();
-    }
 
     // geter and setter
     public function getId(){
@@ -27,30 +22,27 @@ class deckCard{
         $this->deck = $deck;
     }
     public function save($deck){
+        $db = dataBase::conexion();
         $deck = json_encode($deck);
         $sql = "INSERT INTO deckcards VALUES (null,'$deck')";        
-        $save = $this->db->query($sql);
+        $save = $db->query($sql);
+        dataBase::close($db);
         $result = false;
         if($save){
             $result=true;
         }
         return $result;
     }
-
-    public function getOneRand($id){
-        $sql = "SELECT rand(id) FROM deckcards";        
-        $answer = $this->db->query($sql);
-        $result = mysqli_fetch_object($answer);
-        return $result;
-    }
     
     public function getAll(){
+        $db = dataBase::conexion();
         $sql = "SELECT * FROM deckcards";
-        $answer = $this->db->query($sql);
+        $answer = $db->query($sql);
         $result = array();
         while($res = mysqli_fetch_object($answer)){
             array_push($result,$res);
         }
+        dataBase::close($db);
         return $result;
     }
 }//end class
