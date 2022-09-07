@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS deckCards;
 
 CREATE TABLE deckCards(
     id int unsigned AUTO_INCREMENT PRIMARY KEY,
-    deck varchar(255)
+    deck text
 );
 
 -- creacion de la tabla players
