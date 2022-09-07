@@ -9,7 +9,6 @@ class card{
     private $brain;
     private $maxPower;
     private $image;
-    private $db;
 // se genera el constructor de la clase
     public function __construct($id,$name,$description,$strength,$speed,$defense,$brain,$image){
         
@@ -21,7 +20,6 @@ class card{
         $this->defense = $defense;
         $this->brain = $brain;
         $this->maxPower = round(($strength+$speed+$defense+$brain)/4); 
-        $this->db = dataBase::conexion();
     }
     
     public function getId()
@@ -116,6 +114,7 @@ class card{
     }
     // se genera el metodo para guardar una carta.
     public function save(){
+        $db = dataBase::conexion();
         $id = $this->getId();
         $name = $this->getName();
         $description = $this->getDescription();
@@ -127,7 +126,8 @@ class card{
         $image = ($this->getImage())? $this->getImage():null;
 
         $sql = "INSERT INTO cards VALUES ('$id','$name','$description',$strength,$speed,$defense,$brain,$maxPower,'$image')";        
-        $save = $this->db->query($sql);
+        $save = $db->query($sql);
+        dataBase::close($db);
         $result = false;
         if($save){
             $result=true;
