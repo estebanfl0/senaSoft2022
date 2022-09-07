@@ -1,0 +1,29 @@
+div.container{
+    background: url(../public/images/card/cardA1.png);
+    width: 150px;
+    height: 230px;
+    
+ }
+ div.first{
+     width: 52px;
+    height: 163px;
+ }
+ div.second{
+     width: 98px;
+    height: 163px;
+ }
+ div.div{
+     width: 150px;
+    height: 69px;
+ }
+ div.atributtes{
+     display: flex;
+     justify-content: space-between;
+     gap: 13px;
+     margin-top: 50px;
+ }
+ div.atributte{
+     height: 15px;
+     width: 25px;
+     
+ }
