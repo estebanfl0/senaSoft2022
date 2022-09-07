@@ -1,9 +1,19 @@
 *{
-    overflow: hidden;
+    overflow: initial;
 }
 body{
 
     background:  radial-gradient(rgb(0, 0, 0), rgb(140, 0, 255), rgb(255, 30, 188)) no-repeat center;
-    height: 2000px;
-    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    font-weight: 400;
+    background-size: cover;
+}
+input.text {
+    margin-left: 38%;
+}
+hr{
+    width: 40%; 
 }
