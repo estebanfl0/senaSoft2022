@@ -43,7 +43,7 @@ class player{
         $sqlvalidate = "SELECT * FROM players WHERE deck_id= {$_SESSION['idDeck']}";
         $validate = $db->query($sqlvalidate);
 
-        if(!$validate){
+        if(empty($validate)){
 
             $sql = "INSERT INTO players VALUES (null,'$name',$deck_id)";
             $save = $this->db->query($sql);
