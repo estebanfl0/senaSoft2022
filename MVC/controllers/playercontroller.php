@@ -10,9 +10,10 @@ class playercontroller{
         
     }
     public function createPlayer(){
+        echo "si estoy aqui bobis";
         if(isset($_GET['name'])){
             $name = $_GET['name'];
-            $deckCards = new deckCard();
+            $deckCards = new deckCardscontroller();
             $deckCards = $deckCards->getAll();
             $playermodel = new player();
             $playermodel->setName($name);
@@ -25,4 +26,4 @@ class playercontroller{
 
         }
     }
-}
+}   
