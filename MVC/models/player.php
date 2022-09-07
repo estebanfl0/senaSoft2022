@@ -34,15 +34,48 @@ class player{
         $this->deck_id = $deck_id;
     }
 
-    public function createPlayer(){
+    public function createPlayer($decks){
+        $db = dataBase::conexion();
         $name = $this->getName();
+        utils::alterSessionDecks($decks,0);
+        $this->setDeck_id($_SESSION['idDeck']);
         $deck_id = $this->getDeck_id();
-        $sql = "INSERT INTO players VALUES (null,'$name',$deck_id)";
-        $save = $this->db->query($sql);
-        $result = false;
-        if($save){
-            $result=true;
+        $sqlvalidate = "SELECT * FROM players WHERE deck_id= {$_SESSION['idDeck']}";
+        $validate = $db->query($sqlvalidate);
+
+        if(!$validate){
+
+            $sql = "INSERT INTO players VALUES (null,'$name',$deck_id)";
+            $save = $this->db->query($sql);
+            $result = false;
+            dataBase::close($db);
+
+            if($save){
+                $result=true;
+            }
+            return $result;    
+        }else {
+            switch($_SESSION['idDeck']){
+                case 1:
+                    utils::alterSessionDecks($decks,1);
+                    break;
+                case 2:
+                    utils::alterSessionDecks($decks,2);
+                    break;
+                case 3:
+                    utils::alterSessionDecks($decks,3);
+                    break;
+                case 4:
+                    utils::alterSessionDecks($decks,4);
+                    break;
+                case 5:
+                    utils::alterSessionDecks($decks,5);
+                    break;
+                case 6:
+                    utils::alterSessionDecks($decks,6);
+                    break;
+            }
+        $this->createPlayer($decks);
         }
-        return $result;    
     }
 } //end class
