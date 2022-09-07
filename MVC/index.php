@@ -31,6 +31,6 @@ if(class_exists($controller_name)){
     }
 
 }else {
-    $erro = true;
+    $error = true;
     return $error;
 }
