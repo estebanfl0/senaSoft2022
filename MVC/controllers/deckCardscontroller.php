@@ -24,5 +24,10 @@ class deckCardscontroller{
         $decksplay = $decks->getAll();
         return $decksplay;
     }
+    public function getAllId(){
+        $decks = new deckCard();
+        $decksplay = $decks->getAllId();
+        var_dump($decksplay);
+    }
 
 }//end class
