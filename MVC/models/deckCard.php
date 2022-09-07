@@ -45,4 +45,15 @@ class deckCard{
         dataBase::close($db);
         return $result;
     }
+
+    public function getAllId(){
+        $db = dataBase::conexion();
+        $sql = "SELECT id FROM deckcards";
+        $answer = $db->query($sql);
+        $result = array();
+        while($res = mysqli_fetch_array($answer)){
+            array_push($result,$res);
+        }
+        return $result;
+    }
 }//end class
