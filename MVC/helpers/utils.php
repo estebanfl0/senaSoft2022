@@ -13,7 +13,7 @@ class utils{
 
     public static function maxcardDecks($numplayers){
         $result = 0;
-        $res = 32/$numplayers;
+        $res = 32/intval($numplayers);
         $result = floor($res);
         return $result;
     }
@@ -29,5 +29,31 @@ class utils{
             };
         };
         return $arrayplayer;
+    }
+
+    // public static function getAllRand(){
+    //     $db = dataBase::conexion();
+    //     $sql = "SELECT id FROM deckcards ORDER BY RAND()";        
+    //     $answer = $db->query($sql);
+    //     $result = array();
+    //     while($res = mysqli_fetch_object($answer)){
+    //         array_push($result, $res);
+    //     }
+    //     return $result;
+    // }
+
+    // public static function transformObj($deck){
+    //     $array = get_object_vars($deck);
+    //     return $array;
+    // }
+
+    public static function alterSessionDecks($deckArray,$num){
+        $_SESSION['idDeck'] = $deckArray[$num]->id; 
+    }
+    public static function generateAllDecks($numPlayers){
+        for ($i=0; $i < $numPlayers; $i++) { 
+            $ctrDeckcards = new deckCardscontroller();
+            $ctrDeckcards->saveDeck($numPlayers);
+        }
     }
 }// end class
