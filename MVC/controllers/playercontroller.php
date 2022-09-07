@@ -10,14 +10,13 @@ class playercontroller{
         
     }
     public function createPlayer(){
-        echo "si estoy aqui bobis";
+        echo "si estoy aqui bobis <br><hr>";
         if(isset($_GET['name'])){
             $name = $_GET['name'];
             $deckCards = new deckCardscontroller();
             $deckCards = $deckCards->getAll();
             $playermodel = new player();
             $playermodel->setName($name);
-            $playermodel->setDeck_id($deckCards);
             $result = $playermodel->createPlayer($deckCards);
 
             if($result){
