@@ -6,30 +6,26 @@ class playercontroller{
         if(isset($_GET['numPlayers'])){
             $numPj = $_GET['numPlayers'];
             utils::generateAllDecks($_GET['numPlayers']);
-            header("location:".baseController."controller=player&action=createAllPlayers&name=player&numPlayers=$numPj");
+            $players = array(1,2);;
+            header("location:".baseController."controller=player&action=createAllPlayers&name={$players}&numPlayers=$numPj");
         }
         
     }
-    public function createPlayer(){
-        if(isset($_GET['name']) && isset($_GET['numPlayers'])){
-            $name = $_GET['name'];
-            $numPj = $_GET['numPlayers'];
+    public function createPlayer($name){
             $deckCards = new deckCardscontroller();
             $deckCards = $deckCards->getAllId();
             utils::alterSessionDecks($deckCards);
             $playermodel = new player();
             $playermodel->setName($name);
-            $result = $playermodel->createPlayer($numPj);
+            $result = $playermodel->createPlayer();
 
-            if($result){
-                echo "conseguido";
-                var_dump($_SESSION['idDeck']);
-            }
-
-        }
     }
-    public function createAllPlayers(){
 
+    public function createAllPlayers(){
+        $players = 
+        for ($i=0; $i < $_GET['numPlayers']; $i++) {
+            $this->createPlayer()
+        }
     } 
     public function tests(){
         // metodo para realizar pruebas;

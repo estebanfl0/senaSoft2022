@@ -34,7 +34,7 @@ class player{
         $this->deck_id = $deck_id;
     }
 
-    public function createPlayer($numPj){
+    public function createPlayer(){
         $db = dataBase::conexion();
         $name = $this->getName();
         $decks = $_SESSION['idDeck'];
