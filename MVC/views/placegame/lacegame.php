@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Extensiones bootstrap y css -->
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/place-game.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/place-game.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Icono de la pagina -->
-    <link rel="icon" href="../../public/images/icon.png">
+    <link rel="icon" href="<?=base_url?>public/images/icon.png">
     <title>Place-Game</title>
 </head>
 <!-- Barra de navegación de la cabecera -->
@@ -29,7 +29,7 @@
          
         </ul>
         <form class="d-flex" role="search">
-          <button class="btn btn-outline-danger" type="submit">Start Game</button>
+          <button class="btn btn-outline-danger" type="submit">Log Out</button>
         </form>
       </div>
     </div>
@@ -46,7 +46,7 @@
         </div>
         <div class="col-10">
             <div class="">
-                <div><h1 class="text-light text-center border border-light my-2 mx-5" style="width: 90%; height: 400px;"></h1></div>
+                <div><h1 class="text-light text-center border border-light my-2 mx-5 rounded" style="width: 90%; height: 400px;"></h1></div>
                 <div class="column2 player 6 text-center"><button class="py6"></button></div>
             </div>
         </div>

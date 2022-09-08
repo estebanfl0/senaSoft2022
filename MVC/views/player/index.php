@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Extensiones bootstrap y css -->
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/player.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/player.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Icono de la pagina -->
-    <link rel="icon" href="../../public/images/icon.png">
+    <link rel="icon" href="<?=base_url?>public/images/icon.png">
     <title>Index</title>
 </head>
 <!-- Barra de navegación de la cabecera -->
@@ -43,7 +43,7 @@
             
         </div>
         <div class="row text-center ">
-            <form action="" method="" > 
+            <form action="<?=base_url?>?controller=player&action=placeGame" method="post" > 
               <!-- elegir cantidad de jugadores -->
                 <select  name="number" id="number" style="width: 25%;" onchange="ShowSelected();">
                     <option value=""></option>
@@ -55,7 +55,7 @@
                     <option value="7">  Seven</option>
                 </select>
                 <br>
-                <button id="submit" class="btn btn-dark my-5" type="submit">Enter their names</button>
+                <hr style="width: 100%;">
             </form>
             <!-- espacio para insertar la cantidad de inputs -->
             <div class="row" id="names">
@@ -81,10 +81,10 @@
       var combo = document.getElementById("number");
       for (let index = 0; index < cod; index++) {
           div.innerHTML += `<h4>Player ${index+1}</h4>`
-          div.innerHTML +=`<input class="text my-2" type="text" name=player${index} placeholder="Name"  style="width: 25%; "> </input>`
+          div.innerHTML +=`<input class="text my-2" type="text" name=player${index} placeholder="Name"  style="width: 25%; " required> </input>`
           div.innerHTML += "<hr>"
           if (index == (cod-1)) {
-            div.innerHTML += `<form action="" method="post" style="margin-bottom: 10px;">
+            div.innerHTML += `<form action="<?=base_url?>index.php/?controller=player&action=placeGame" method="post" style="margin-bottom: 10px;">
                   <input type="submit" class="btn btn-success by-4">
                 </form>`
             div.innerHTML += `
@@ -97,7 +97,8 @@
     } else {
       div.innerHTML =""
     }
-    
+    console.log(cod)
 }
+
 </script>
 </html>
