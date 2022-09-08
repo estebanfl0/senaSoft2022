@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Extensiones bootstrap y css -->
-    <link rel="stylesheet" href="../../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../public/css/place-game.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=base_url?>public/css/place-game.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Icono de la pagina -->
-    <link rel="icon" href="../../public/images/icon.png">
+    <link rel="icon" href="<?=base_url?>public/images/icon.png">
     <title>Place-Game</title>
 </head>
 <!-- Barra de navegación de la cabecera -->
@@ -23,13 +23,15 @@
       </div>
       <div class="col collapse navbar-collapse mx-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="tempo nav-link active text-light border border-light rounded my-2 " id="temporizador"aria-current="page" href="#">1800000</a>
-          </li>
+        <div class="control text-center">
+                <input class="form-control" type="number" class="count-down" placeholder="Time In Seconds" min="0">
+                <br>
+                <button class="btn-count btn btn-light">Start Time</button>
+            </div>
          
         </ul>
         <form class="d-flex" role="search">
-          <button class="btn btn-outline-danger" type="submit">Start Game</button>
+          <button class="btn btn-outline-danger" type="submit">Log Out</button>
         </form>
       </div>
     </div>
@@ -46,7 +48,7 @@
         </div>
         <div class="col-10">
             <div class="">
-                <div><h1 class="text-light text-center border border-light my-2 mx-5" style="width: 90%; height: 400px;"></h1></div>
+                <div><h1 class="text-light text-center border border-light my-2 mx-5 rounded" style="width: 90%; height: 400px;"></h1></div>
                 <div class="column2 player 6 text-center"><button class="py6"></button></div>
             </div>
         </div>
@@ -64,26 +66,27 @@
 </body>
 <script src="../../public/js/bootstrap.min.js"></script>
 <script>
-    function temporizador(id, start, end){
-        this.id = id
-        this.start = start
-        this.end = end
-        this.contador = this.start
+    const count_down = document.querySelector('.count-down')
+    const btn_count = document.querySelector('.btn-count')
 
-
-        this.conteoSegundos = function(){
-            if (this.contador == this.end) {
-                this.conteoSegundos = null
-                return;
+    btn_count.addEventListener('click', (e) => {
+            if (count_down.value.length > 0) {
+                let count = count_down.value
+                let s_int = setInterval(function() {
+                    count--
+                    if (count < 0) {
+                        clearInterval(s_int)
+                        alert('Time is over')
+                    } else {
+                        count_down.value = count
+                    }
+                    
+                },1000)
+                
+            }else{
+                alert('Plase, enter time in seconds')
             }
-
-            document.getElementById(this.id).innerHTML = this.contador--
-            setTimeout(this.conteoSegundos.bind(this), 1000)
-        }
-
-    }
-    let temporizador = new temporizador('temporizador', 10, 0)
-    temporizador.conteoSegundos()
+        })
 
 </script>
 </html>

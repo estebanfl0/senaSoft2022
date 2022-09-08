@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Extensiones bootstrap y css -->
-    <link rel="stylesheet" href="../public/css/cardsT.css">
-    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <!-- Icono de la pagina -->
-    <link rel="icon" href="../public/images/icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<?php
+    require_once("../config/parameters.php");
+    require_once("../views/layouts/header.php");
+    require_once("../controllers/cardscontroller.php");
+    $ctrcards = new cardscontroller();
+    $cards= $ctrcards->getAllCards();
+    $array = $cards[0];
+
+    var_dump($array);
+?>   
     <style>
        div.container{
-        background: url(../public/images/card/cardA1.png);}
+        background: url('../public/images/cards/<?php $array[8]?>');
+    }
     </style>
     <title>Cards</title>
 </head>
@@ -27,7 +22,7 @@
             <div class="first col-4">
                 <div class="atributtes row mx-1">
                     <div class="atributte 2">
-                        <p  style="color: white;position: relative;right: 3px; top: -2px;;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size:15px;">11</p>
+                        <p  style="color: white;position: relative;right: 3px; top: -2px;;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size:15px;"><?php echo $cards[0]->strength ?></p>
                     </div>
                     <div class="atributte 3">
                         <p  style="color: white;position: relative;right: 3px; top: -2px;;font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-size:15px;">11</p>
@@ -61,6 +56,7 @@
     </div>    
 </body>
 <script src="../../public/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 </script>
 </html>
