@@ -20,6 +20,7 @@ class card{
         $this->defense = $defense;
         $this->brain = $brain;
         $this->maxPower = round(($strength+$speed+$defense+$brain)/4); 
+        $this->image = $image;
     }
     
     public function getId()
