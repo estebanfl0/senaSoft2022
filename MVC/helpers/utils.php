@@ -47,8 +47,8 @@ class utils{
     //     return $array;
     // }
 
-    public static function alterSessionDecks($deckArray,$num){
-        $_SESSION['idDeck'] = $deckArray[$num]->id; 
+    public static function alterSessionDecks($deckArray){
+        $_SESSION['idDeck'] = $deckArray; 
     }
     public static function generateAllDecks($numPlayers){
         for ($i=0; $i < $numPlayers; $i++) { 
@@ -56,4 +56,5 @@ class utils{
             $ctrDeckcards->saveDeck($numPlayers);
         }
     }
-}// end class
+
+}//end class

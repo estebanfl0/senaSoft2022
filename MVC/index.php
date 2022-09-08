@@ -10,10 +10,9 @@ if(isset($_GET['controller'])){
 }
 elseif(!isset($_GET['controller']) && !isset($_GET['action'])){
     $controller_name = controler_default;
-
 }
 else {
-    $erro = true;
+    $error = true;
     return $error;
 }
 if(class_exists($controller_name)){

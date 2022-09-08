@@ -17,25 +17,30 @@ class playercontroller{
     // Metodos para generar mazos y jugadores 
     public function createDecksgame(){
         if(isset($_GET['numPlayers'])){
+            $numPj = $_GET['numPlayers'];
             utils::generateAllDecks($_GET['numPlayers']);
-            // header("location:".baseController."controller=player&action=createPlayer&name=player");
+            $players = array(1,2);;
+            header("location:".baseController."controller=player&action=createAllPlayers&name={$players}&numPlayers=$numPj");
         }
         
     }
-    public function createPlayer(){
-        if(isset($_GET['name'])){
-            $name = $_GET['name'];
-            $deckCards = new deckCard();
-            $deckCards = $deckCards->getAll();
+    public function createPlayer($name){
+            $deckCards = new deckCardscontroller();
+            $deckCards = $deckCards->getAllId();
+            utils::alterSessionDecks($deckCards);
             $playermodel = new player();
             $playermodel->setName($name);
-            $playermodel->setDeck_id($deckCards);
-            $result = $playermodel->createPlayer($deckCards);
+            $result = $playermodel->createPlayer();
 
-            if($result){
-                echo "conseguido";
-            }
-
-        }
     }
-}
+
+    public function createAllPlayers(){
+        $players = 
+        for ($i=0; $i < $_GET['numPlayers']; $i++) {
+            $this->createPlayer()
+        }
+    } 
+    public function tests(){
+        // metodo para realizar pruebas;
+    }
+}   

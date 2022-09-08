@@ -19,7 +19,11 @@ class card{
         $this->speed = $speed;
         $this->defense = $defense;
         $this->brain = $brain;
+<<<<<<< HEAD
         $this->maxPower = round(($strength+$speed+$defense+$brain)/4); 
+=======
+        $this->maxPower = round(($strength+$speed+$defense+$brain)/4);
+>>>>>>> main
         $this->image = $image;
     }
     
@@ -124,7 +128,7 @@ class card{
         $defense = $this->getDefense();
         $brain = $this->getBrain();
         $maxPower = $this->getBrain();
-        $image = ($this->getImage())? $this->getImage():null;
+        $image = $this->getImage();
 
         $sql = "INSERT INTO cards VALUES ('$id','$name','$description',$strength,$speed,$defense,$brain,$maxPower,'$image')";        
         $save = $db->query($sql);

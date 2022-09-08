@@ -8,7 +8,8 @@ class cardscontroller{
             require_once('dataBase/insertcards.php');
             $create = seedCards();
             if($create){
-                header("location:".baseController."controller=player&action=index");
+                echo "se logro";
+                // header("location:".baseController."controller=player&action=index");
             }
         }
     }
@@ -17,4 +18,4 @@ class cardscontroller{
         $cards = utils::returnAllCards();
         return $cards;
     }
-}
+}   
