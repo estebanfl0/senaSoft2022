@@ -57,6 +57,10 @@
                 <br>
                 <hr style="width: 100%;">
             </form>
+            <form action="<?=base_url?>?controller=player&action=templateCard" method="post">
+              <input type="submit" class="btn btn-dark" value="Cards">
+              <hr style="width: 100%;">
+            </form>
             <!-- espacio para insertar la cantidad de inputs -->
             <div class="row" id="names">
               

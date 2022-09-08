@@ -61,6 +61,10 @@
                 </div>
             </div>
         </div>
+        <form action="<?=base_url?>?controller=player&action=index" class="mx-4" method="post">
+              <input type="submit" class="btn btn-dark" value="Cards">
+              <hr style="width: 100%;">
+            </form>
     </div>    
 </body>
 <script src="public/js/bootstrap.min.js"></script>
