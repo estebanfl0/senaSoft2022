@@ -19,11 +19,7 @@ class card{
         $this->speed = $speed;
         $this->defense = $defense;
         $this->brain = $brain;
-<<<<<<< HEAD
         $this->maxPower = round(($strength+$speed+$defense+$brain)/4); 
-=======
-        $this->maxPower = round(($strength+$speed+$defense+$brain)/4);
->>>>>>> main
         $this->image = $image;
     }
     

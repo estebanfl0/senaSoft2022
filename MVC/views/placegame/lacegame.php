@@ -23,9 +23,11 @@
       </div>
       <div class="col collapse navbar-collapse mx-5" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="tempo nav-link active text-light border border-light rounded my-2 " id="temporizador"aria-current="page" href="#">1800000</a>
-          </li>
+        <div class="control text-center">
+                <input class="form-control" type="number" class="count-down" placeholder="Time In Seconds" min="0">
+                <br>
+                <button class="btn-count btn btn-light">Start Time</button>
+            </div>
          
         </ul>
         <form class="d-flex" role="search">
@@ -64,26 +66,27 @@
 </body>
 <script src="../../public/js/bootstrap.min.js"></script>
 <script>
-    function temporizador(id, start, end){
-        this.id = id
-        this.start = start
-        this.end = end
-        this.contador = this.start
+    const count_down = document.querySelector('.count-down')
+    const btn_count = document.querySelector('.btn-count')
 
-
-        this.conteoSegundos = function(){
-            if (this.contador == this.end) {
-                this.conteoSegundos = null
-                return;
+    btn_count.addEventListener('click', (e) => {
+            if (count_down.value.length > 0) {
+                let count = count_down.value
+                let s_int = setInterval(function() {
+                    count--
+                    if (count < 0) {
+                        clearInterval(s_int)
+                        alert('Time is over')
+                    } else {
+                        count_down.value = count
+                    }
+                    
+                },1000)
+                
+            }else{
+                alert('Plase, enter time in seconds')
             }
-
-            document.getElementById(this.id).innerHTML = this.contador--
-            setTimeout(this.conteoSegundos.bind(this), 1000)
-        }
-
-    }
-    let temporizador = new temporizador('temporizador', 10, 0)
-    temporizador.conteoSegundos()
+        })
 
 </script>
 </html>

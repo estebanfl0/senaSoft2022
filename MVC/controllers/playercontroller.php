@@ -11,6 +11,9 @@ class playercontroller{
     public function placeGame() {
         require_once('views/placegame/lacegame.php');
     }
+    public function templateCard() {
+        require_once('views/player/card.php');
+    }
 
 
 
@@ -35,10 +38,10 @@ class playercontroller{
     }
 
     public function createAllPlayers(){
-        $players = 
-        for ($i=0; $i < $_GET['numPlayers']; $i++) {
-            $this->createPlayer()
-        }
+        $players = 0;
+        // for ($i=0; $i < $_GET['numPlayers']; $i++) {
+        //     $this->createPlayer();
+        // }
     } 
     public function tests(){
         // metodo para realizar pruebas;

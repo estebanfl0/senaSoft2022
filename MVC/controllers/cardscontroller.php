@@ -1,6 +1,6 @@
 <?php 
-require_once('../models/card.php');
-require_once('../helpers/utils.php');
+require_once('models/card.php');
+require_once('helpers/utils.php');
 class cardscontroller{
     public function seedCards(){
         // Generar todas las cartas
