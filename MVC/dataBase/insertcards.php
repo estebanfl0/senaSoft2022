@@ -1,8 +1,9 @@
 <?php
 function seedCards(){
     $arrayCards = array();
-    $card0 = new card("A0","test","small description",70,50,45,45,"cardA0.png");
-    array_push($arrayCards,$card0);
+    /* ------->registro de test <-------*/
+    // $card0 = new card("A0","test","small description",70,50,45,45,"cardA0.png");
+    // array_push($arrayCards,$card0);
 
     // datos de las cartas
     $card1 = new card("A1","kratos","In Greek mythology, Cratos, Crato or Kratos was the male personification of strength, power or dominance.",70,50,45,45,"cardA1.png");
