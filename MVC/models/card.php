@@ -11,7 +11,6 @@ class card{
     private $image;
 // se genera el constructor de la clase
     public function __construct($id,$name,$description,$strength,$speed,$defense,$brain,$image){
-        
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
@@ -19,7 +18,7 @@ class card{
         $this->speed = $speed;
         $this->defense = $defense;
         $this->brain = $brain;
-        $this->maxPower = round(($strength+$speed+$defense+$brain)/4);
+        $this->maxPower = ($speed+$defense+$brain+$strength)/4;
         $this->image = $image;
     }
     

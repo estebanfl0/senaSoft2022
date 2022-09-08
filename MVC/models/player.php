@@ -34,11 +34,11 @@ class player{
         $this->deck_id = $deck_id;
     }
 
-    public function createPlayer(){
+    public function createPlayer($id){
         $db = dataBase::conexion();
         $name = $this->getName();
         $decks = $_SESSION['idDeck'];
-        $this->setDeck_id($decks[0][0]);
+        $this->setDeck_id($decks[intval($id)][0]);
         $deck_id = $this->getDeck_id();
 
         $sql = "INSERT INTO players VALUES (null,'$name',$deck_id)";
