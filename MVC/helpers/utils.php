@@ -56,4 +56,18 @@ class utils{
             $ctrDeckcards->saveDeck($numPlayers);
         }
     }
-}// end class
+
+    public static function selectIdArray($numplayers){
+        $db = dataBase::conexion();
+        for ($i=1; $i <= $numplayers; $i++) { 
+            $result = $i;
+            $sql = "SELECT * FROM players WHERE deck_id = $i";
+            $res = $db->query("SELECT * FROM players WHERE deck_id = $i");
+            if(!$res){
+                $result = $i;
+                break;
+            }
+        }
+        return $result;
+    }
+}//end class
