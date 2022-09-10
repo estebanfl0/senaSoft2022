@@ -1,7 +1,23 @@
 <?php 
 require_once('models/player.php');
 class playercontroller{
+    // Metodos para requerrir vistas
+    public function index() {
+        require_once('views/player/index.php');
+    }
+    public function cardTemplatee() {
+        require_once('template/cardT.php');
+    }
+    public function placeGame() {
+        require_once('views/placegame/lacegame.php');
+    }
+    public function templateCard() {
+        require_once('views/player/card.php');
+    }
 
+
+
+    // Metodos para generar mazos y jugadores 
     public function createDecksgame(){
         if(isset($_GET['numPlayers'])){
             $numPj = $_GET['numPlayers'];
@@ -22,10 +38,26 @@ class playercontroller{
     }
 
     public function createAllPlayers(){
+<<<<<<< Updated upstream
         $players = 
         for ($i=0; $i < $_GET['numPlayers']; $i++) {
             $this->createPlayer()
         }
+=======
+<<<<<<< HEAD
+        $players = json_decode($_GET['name']);
+
+        for ($i=1; $i <= $_GET['numPlayers']; $i++) {
+            $this->createPlayer($i, $players[$i]);
+        }
+        echo "Lossers.com";
+=======
+        $players = 0;
+        // for ($i=0; $i < $_GET['numPlayers']; $i++) {
+        //     $this->createPlayer();
+        // }
+>>>>>>> Esteban
+>>>>>>> Stashed changes
     } 
     public function tests(){
         // metodo para realizar pruebas;
